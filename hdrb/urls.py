@@ -1,9 +1,8 @@
 
 from django.contrib import admin
 from django.urls import path
-from hdrb import views
-
+from hdrb.views import base_views
 app_name = 'hdrb'
 urlpatterns = [
-    path('', views.index, name='index')
+    path('', base_views.index, name='index')
 ]

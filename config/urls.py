@@ -16,9 +16,9 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-
+from hdrb.views import base_views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hdrb/', include('hdrb.urls'))
+    path('hdrb/', include('hdrb.urls')),
+    path('',base_views.index, name='index'),
 ]
-# feature/reserv_create brnach !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

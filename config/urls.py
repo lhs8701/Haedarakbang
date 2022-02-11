@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('hdrb/', include('hdrb.urls')),
     path('',base_views.index, name='index'),
+    path('common/',include('common.urls')),
 ]

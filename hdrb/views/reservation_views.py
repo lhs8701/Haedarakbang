@@ -1,11 +1,10 @@
-from django.db.models import Q
-from django.http import HttpResponse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 
 from hdrb.forms import ReservationForm
-from hdrb.models import Reservation
 
 
+@login_required()
 def reservation_create(request):
     """
     예약 정보 생성
@@ -13,7 +12,9 @@ def reservation_create(request):
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         if form.is_valid():
-            form.save()
+            reservation = form.save(commit=False)
+            reservation.writer = request.user
+            reservation.save()
             return redirect('hdrb:index')
     else:
         form = ReservationForm()

@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
     <form>
-        <a href={% url "hdrb:reservation_create" %}>예약하기</a>
+        <a  {% if user.is_authenticated %}
+            href="{% url "hdrb:reservation_create" %}"
+        {% else %}
+            href="#"
+        {% endif %}>예약하기</a>
     </form>
 {% endblock %}

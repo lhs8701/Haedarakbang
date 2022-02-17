@@ -176,23 +176,34 @@
     margin: auto;
 }
 
-.login_container .login_header {
+.login_header {
     margin-bottom: 20px;
 }
 
-.login_container .login_header h1 {
+.login_header h1 {
     font-size: 30px;
     font-weight: 700;
     width: 400px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-.login_container .login_header .signup_link {
+.login_header .signup_link{
+    font-weight: 700;
+    font-size: 14px;
+}
+.login_header .signup_link:after{
+    content:'';
+    width:100%;
+    height:2px;
+    background:black;
+    display:block;
+    margin-top:20px;
+}
+.login_header .signup_link a{
     text-decoration: none;
     color: #3E7AFA;
     cursor: pointer;
-    font-weight: 700;
-    font-size: 12px;
+
 }
 
 .hide {
@@ -214,15 +225,17 @@
     font-size: 0;
 }
 
-.login_container .login_block .id_block {
-    margin-bottom: 15px;
+.login_container .login_block input {
+    margin-bottom: 20px;
 }
 
 .login_container .login_block .pw_block {
     margin-bottom: 40px;
 }
 
-.login_container .login_block button {
+
+
+.submit_btn {
     width: 100%;
     height: 45px;
     background: #3E7AFA;
@@ -233,6 +246,70 @@
     cursor: pointer;
 }
 
-.login_container .login_block button:hover {
+.submit_btn:hover {
     background: #5AA2FA;
 }
+
+.signup_container{
+    width:350px;
+    margin:auto;
+}
+.signup_header{
+    margin-bottom:20px;
+}
+
+.signup_header h1{
+    font-size: 30px;
+    font-weight: 700;
+    width: 400px;
+    margin-bottom: 10px;
+}
+.signup_header .login_link{
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.signup_header .login_link:after{
+    content:'';
+    width:100%;
+    height:2px;
+    background:black;
+    display:block;
+    margin-top:20px;
+}
+.signup_header .login_link a{
+    text-decoration: none;
+    color: #3E7AFA;
+    cursor: pointer;
+}
+
+.signup_block .hide{
+    display:none;
+}
+
+.signup_block input {
+    width: 100%;
+    height: 40px;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    margin-bottom:20px;
+}
+.signup_block .pw2_block {
+    margin-bottom:40px;
+}
+
+.signup_block input:focus::placeholder {
+    font-size: 0;
+}
+/*
+
+
+.login_container .login_block .pw_block {
+    margin-bottom: 40px;
+}
+
+*/

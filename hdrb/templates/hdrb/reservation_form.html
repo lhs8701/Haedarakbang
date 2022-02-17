@@ -1,34 +1,47 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div>
-        <h1>예약하기</h1>
-        <form method="post">
-            {% csrf_token %}
-            {% include 'form_errors.html' %}
-            <div>
-                <label for="start_time">시작 시간</label>
-                <input type="datetime-local" name="start_time" id="start_time" value="{{ form.start_time.value }}">
+    <div id="create_form">
+        <div class="main_container">
+            <h1>예약하기</h1>
+            <div class="inner">
+                <form method="post">
+                    {% csrf_token %}
+                    {% include 'form_errors.html' %}
+                    <div class="box timer">
+                        <div class="start_time_field">
+                            <label for="start_time" class="sub_title_style">시작 시간</label>
+                            <input type="datetime-local" name="start_time" id="start_time"
+                                   value="{{ form.start_time.value }}">
+                        </div>
+                        <div class="end_time_field">
+                            <label for="end_time" class="sub_title_style">종료 시간</label>
+                            <input type="datetime-local" name="end_time" id="end_time"
+                                   value="{{ form.end_time.value }}">
+                        </div>
+                    </div>
+                    <div class="box people_field">
+                        <label for="num_of_people" class="sub_title_style">인원수</label>
+                        <input type="number" name="num_of_people" id="num_of_people" min="1" max="10"
+                               value="{{ form.num_of_people.value|default_if_none:'1' }}">
+                    </div>
+                    <div class="box join_field">
+                        <span class="sub_title_style">합석 가능해요</span>
+                        <input type="checkbox" name="allow_join" id="checkbox" {% if form.allow_join.value %}
+                               checked {% endif %} >
+                        <label for="checkbox"></label>
+                        {#                        <label for="allow_join"><span class="sub_title_style">합석 가능해요</span></label>#}
+                    </div>
+                    <div class="box memo_field">
+                        <label for="memo" class="sub_title_style">MEMO</label>
+                        <textarea rows="4" name="memo" id="memo"
+                                  placeholder="내용을 입력하세요">{{ form.memo.value|default_if_none:'' }}</textarea>
+                    </div>
+                    <div class="button_field">
+                        <button type="submit"> 저장</button>
+                    </div>
+                </form>
             </div>
-            <div>
-                <label for="end_time">종료 시간</label>
-                <input type="datetime-local" name="end_time" id="end_time" value="{{ form.end_time.value }}">
-            </div>
-            <div>
-                <label for="num_of_people">인원수</label>
-                <input type="number" name="num_of_people" id="num_of_people" min="1" max="10"
-                       value="{{ form.num_of_people.value|default_if_none:'1' }}">
-            </div>
-            <div>
-                <label for="allow_join">합석 가능해요</label>
-                <input type="checkbox" name="allow_join" id="checkbox" {% if form.allow_join.value %}
-                       checked {% endif %} >
-            </div>
-            <div>
-                <label for="memo">MEMO</label>
-                <textarea rows="4" name="memo" id="memo">{{ form.memo.value|default_if_none:'' }}</textarea>
-            </div>
-            <button type="submit">저장</button>
-        </form>
+        </div>
     </div>
 
 {% endblock %}

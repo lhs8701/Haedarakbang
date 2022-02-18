@@ -13,21 +13,27 @@
                 {% include 'form_errors.html' %}
                 <div class="id_block">
                     <label for="username" class="hide">ID</label>
-                    <input type="text" class="username" name="username"
+                    <input type="text" id="username" name="username"
                            placeholder="아이디"
                            value="{{ form.username.value|default_if_none:'' }}">
                 </div>
                 <div class="pw1_block">
                     <label for="password1" class="hide">비밀번호</label>
-                    <input type="password" class="password1" name="password1"
+                    <input type="password" id="password1" name="password1"
                            placeholder="비밀번호"
                            value="{{ form.password1.value|default_if_none:'' }}">
                 </div>
                 <div class="pw2_block">
                     <label for="password2" class="hide">비밀번호 확인</label>
-                    <input type="password" class="password2" name="password2"
+                    <input type="password" id="password2" name="password2"
                            placeholder="비밀번호 확인"
                            value="{{ form.password2.value|default_if_none:'' }}">
+                </div>
+                <div class="real_name_block">
+                    <label for="real_name" class="hide">이름</label>
+                    <input type="text" id="real_name" name="real_name"
+                           placeholder="이름 (실명)"
+                           value="{{ form.real_name.value|default_if_none:'' }}">
                 </div>
                 <button type="submit" class="submit_btn">가입하기</button>
             </form>
